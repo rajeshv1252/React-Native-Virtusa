@@ -78,5 +78,15 @@ export function countVowelsAndConsonants(input) {
     }
     return { vowels, consonants };
 }
-const result = countVowelsAndConsonants("Hello World!");
-console.log(result); // Output: { vowels: 3, consonants: 7 }
+//   const result = countVowelsAndConsonants("Hello World!");
+// console.log(result); // Output: { vowels: 3, consonants: 7 }
+function totalMatchingIntegers(arr, target) {
+    return arr
+        .filter(num => num === target) // Filter only the matching integers
+        .reduce((sum, num) => sum + num, 0); // Sum them up
+}
+// Example usage:
+const array = [1, 2, 3, 4, 2, 5, 2, 6];
+const target = 2;
+const total = totalMatchingIntegers(array, target);
+console.log(total);

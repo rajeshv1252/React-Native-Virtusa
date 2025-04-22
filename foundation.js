@@ -85,8 +85,90 @@ function totalMatchingIntegers(arr, target) {
         .filter(num => num === target) // Filter only the matching integers
         .reduce((sum, num) => sum + num, 0); // Sum them up
 }
-// Example usage:
+// 
 const array = [1, 2, 3, 4, 2, 5, 2, 6];
 const target = 2;
-const total = totalMatchingIntegers(array, target);
-console.log(total);
+// const total = totalMatchingIntegers(array, target);
+// console.log(total); 
+function reverseArray(arr) {
+    const reversed = [];
+    for (let i = arr.length - 1; i >= 0; i--) {
+        reversed.push(arr[i]);
+    }
+    return reversed;
+}
+// const arr: number[] = [1, 2, 3, 4, 5];
+// const reversedArr: number[] = reverseArray(arr);
+// console.log(reversedArr); 
+function findMaxWithForLoop(arr) {
+    let maxElement = arr[0]; // Assume the first element is the max initially
+    for (let i = 1; i < arr.length; i++) { // Start loop from the second element
+        if (arr[i] > maxElement) {
+            maxElement = arr[i]; // Update maxElement if a larger element is found
+        }
+    }
+    return maxElement;
+}
+// const arr: number[] = [1, 5, 3, 9, 2];
+// const maxElement = findMaxWithForLoop(arr);
+// console.log(maxElement); 
+function sortArrayAscending(arr) {
+    return arr.sort((a, b) => a - b); // Compare function for ascending order
+}
+// const arr: number[] = [5, 3, 8, 1, 2];
+// const sortedArr = sortArrayAscending(arr);
+// console.log(sortedArr);
+function sumIntegers(a, b) {
+    if (!Number.isInteger(a) || !Number.isInteger(b)) {
+        throw new Error("Both inputs must be integers");
+    }
+    return a + b;
+}
+//console.log(sumIntegers(3, 7));  
+// ----------------------------------------------------------------------
+function average(numbers) {
+    if (numbers.length === 0) {
+        throw new Error("Cannot compute average of an empty array");
+    }
+    const sum = numbers.reduce((acc, num) => acc + num, 0);
+    return sum / numbers.length;
+}
+// 
+// const nums = [10, 20, 30, 40];
+// console.log(average(nums)); 
+// ----------------------------------------------------------------------
+function isEven(num) {
+    return num % 2 === 0;
+}
+function isOdd(num) {
+    return num % 2 !== 0;
+}
+// 
+// console.log(isEven(9)); // true
+// console.log(isOdd(7));
+// ----------------------------------------------------------------------
+class ListNode {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    }
+}
+function findMiddle(head) {
+    if (head === null)
+        return null;
+    let slow = head;
+    let fast = head;
+    while (fast !== null && fast.next !== null) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    return slow;
+}
+const head = new ListNode(1);
+head.next = new ListNode(2);
+head.next.next = new ListNode(3);
+head.next.next.next = new ListNode(4);
+head.next.next.next.next = new ListNode(5);
+const middle = findMiddle(head);
+console.log(middle === null || middle === void 0 ? void 0 : middle.value);
+// ----------------------------------------------------------------------
